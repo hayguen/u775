@@ -2,4 +2,6 @@
 TODO (listed from highest to lowest priority):
 ==============================================
 
--
+- verify received time/minute with previous ones before
+  setting system time
+
