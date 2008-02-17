@@ -5,3 +5,5 @@ TODO (listed from highest to lowest priority):
 - verify received time/minute with previous ones before
   setting system time
 
+- modify hardware layout: multiply dcf signal with with a carrier
+  generated from soundcard. goal is to minimize jitter.
