@@ -1,0 +1,34 @@
+
+U77,5 - a set of USB sound / DCF77 tools
+
+
+DESCRIPTION:
+
+This project aims to demonstrate:
+a- how to build a "simple" hardware consisting of a DCF77 receiver and a
+   low-cost USB soundcard.
+b- evaluation of the signal from the USB sound card (using PortAudio
+   see http://www.portaudio.com/)
+
+
+
+LICENSE:
+
+GNU LGPL (GNU Lesser Public License, see COPYING)
+
+
+--- LGPL --
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser Public License
+as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+See the GNU Lesser Public License for more details.
+
+You should have received a copy of the GNU Lesser Public License
+along with U77,5.  If not, see <http://www.gnu.org/licenses/>.
+
