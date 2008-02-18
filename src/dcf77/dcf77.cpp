@@ -343,6 +343,7 @@ void DCF77::newData( unsigned int framecount, const float * data )
             aiDiffFrames[iDiffIdx] = FramesSinceLastPulse + i;
             iDiffIdx = 1 - iDiffIdx;
             PrintDiff = 1;
+            FramesSinceLastPulse = - (int)i;
           }
           else if ( ( 0 == LastBit && MSecsSinceLastPulse > 860.0 && MSecsSinceLastPulse < 940.0 )  // ~ 900 ms
                   ||( 1 == LastBit && MSecsSinceLastPulse > 760.0 && MSecsSinceLastPulse < 840.0 )  // ~ 800 ms
@@ -353,6 +354,7 @@ void DCF77::newData( unsigned int framecount, const float * data )
             aiDiffFrames[iDiffIdx] = FramesSinceLastPulse + i;
             iDiffIdx = 1 - iDiffIdx;
             PrintDiff = 1;
+            FramesSinceLastPulse = - (int)i;
           }
           else if ( ( 0 == LastBit && MSecsSinceLastPulse > 1860.0 && MSecsSinceLastPulse < 1940.0 )  // ~ 1900 ms
                   ||( 1 == LastBit && MSecsSinceLastPulse > 1760.0 && MSecsSinceLastPulse < 1840.0 )  // ~ 1800 ms
@@ -369,16 +371,27 @@ void DCF77::newData( unsigned int framecount, const float * data )
             aiDiffFrames[iDiffIdx] = FramesSinceLastPulse + i;
             iDiffIdx = 1 - iDiffIdx;
             PrintDiff = 1;
+            FramesSinceLastPulse = - (int)i;
           }
           else if ( MSecsSinceLastPulse >= 20000.0 && MSecsSinceLastPulse < 50000.0 )  // initial pulse search?
+          {
             LastBit = -1;   // ignore
+            FramesSinceLastPulse = - (int)i;
+          }
+          else if ( -1 == LastBit && MSecsSinceLastPulse < 30.0 )
+          {
+            // filter noise!
+            LastBit = -1;
+            //fprintf(stderr, "ignore after %f ms\n", MSecsSinceLastPulse);
+            // do not set FramesSinceLastPulse !!!
+          }
           else
           {
+            //fprintf(stderr, "resync: with LastBit=%d after %f ms\n", LastBit, MSecsSinceLastPulse);
             ReSync = true;  // sync error!
             LastBit = -1;
+            FramesSinceLastPulse = - (int)i;
           }
-
-          FramesSinceLastPulse = - (int)i;
         }
         LocalLastSample = data[idx];
       } // end for
