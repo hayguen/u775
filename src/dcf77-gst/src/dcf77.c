@@ -94,7 +94,7 @@ dcf77_base_init (gpointer gclass)
   static GstElementDetails element_details = {
     "DCF77 decoder",
     "Analyzer/Audio/DCF77",
-    "Decodes an incoming DCF77 audio stream, for date and timee information.",
+    "Decodes an incoming DCF77 audio stream, for date and time information.",
     "Detlef Reichl <detlef ! reichl () gmx ! org>"
   };
   GstElementClass *element_class = GST_ELEMENT_CLASS (gclass);
@@ -570,7 +570,7 @@ eval_min_pulse(Dcf77 *filter)
    return "Error: Higher digit for Minute not in range 0 .. 5\0";
 
   if (0 != ParityHour)
-    return "Error: Defect Parity for Hour\n";
+    return "Error: Defect Parity for Hour\0";
 
   if (HourBCDLo > 9)
     return "Error: Lower digit for Hour not in range 0 .. 9\0";
