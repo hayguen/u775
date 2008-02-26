@@ -1,0 +1,10 @@
+With this package you get a decoder for the German time signal "DCF77" as a
+gstreamer plugin.
+
+As hardware we took a DCF77 reciver module and a cheep USB Sound card. How it
+looks like, how you have to wire them and where you can obtain the HW, you can
+get from the projects page at http://u775.sourceforge.net . All in all it is a
+very cheap sollution around 25 €uros.
+
+In the examples directory you find a very simple usecase of this plugin. Feel
+free to contribute better examples or applications.
